@@ -1,0 +1,4 @@
+# Generated C++ build output
+*.exe
+*.o
+*.obj
