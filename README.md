@@ -56,7 +56,7 @@ showRecommendation(int). Only main.cpp defines main().
 
 The integrated program was compiled with GCC 16.2.0 using C++11, `-Wall`,
 `-Wextra`, and debug symbols. All 16 integration cases passed on
-28 September 2026. See TEST_RESULTS.md for the recorded checks.
+28 September 2026.
 
 For a quick demonstration, enter 1, abc, 2, 3, then 4. Expect one
 validation error, all three genre recommendations, and a final count of 3.
