@@ -28,8 +28,9 @@ not install a compiler.
 
 5. Open this repository folder in VS Code. If necessary, run
    `Developer: Reload Window` from the Command Palette.
-6. Press **Ctrl+Shift+B** to build, or **F5** to build and debug using
-   **Run Netflix project**.
+6. Press **Ctrl+Shift+B** to build. To build and run interactively, open
+   **Terminal > Run Task > Run Netflix program**. Enter your choices in the terminal.
+   The separate **Run Netflix project** launch configuration uses GDB for debugging.
 
 Official setup guide: https://code.visualstudio.com/docs/cpp/config-mingw
 
@@ -38,7 +39,7 @@ The shared `.vscode` settings expect the compiler and debugger in
 those settings for your computer. The terminal PATH setting applies to new
 VS Code terminals in this project.
 
-The build task compiles all `.cpp` files in the project folder into
+The build task compiles `main.cpp`, `program.cpp`, and `recommendations.cpp` into
 `netflix.exe`. Keep only one `main()` function across those files.
 Generated executables are excluded from Git.
 
