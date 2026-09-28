@@ -4,9 +4,12 @@ A C++ group project inspired by Netflix movie recommendations.
 
 ## Current development stage
 
-Member 1 has implemented the program title and genre menu in `main.cpp`.
-The current program displays the menu and exits. User input, validation,
-recommendations, and the interactive loop will be added in later stages.
+The three members' modules are integrated. The program accepts a genre,
+shows a sample recommendation, and returns to the menu until the user exits.
+Member 1's input validation rejects invalid lines and handles closed input safely.
+
+Menu options: 1 = Action, 2 = Comedy, 3 = Horror, 4 = Exit.
+The program uses fixed sample movies, not a live Netflix catalogue or AI model.
 
 ## Windows / VS Code setup
 
@@ -45,11 +48,14 @@ Generated executables are excluded from Git.
 - Member 2: `recommendations.cpp` - movie data and recommendation logic.
 - Member 3: `program.cpp` - interactive loop and integration.
 
-Members 2 and 3 can create their respective files when they begin work.
-Coordinate function signatures before integrating the complete program.
+The main entry point calls runProgram(), which uses readGenre() and
+showRecommendation(int). Only main.cpp defines main().
 
 ## Validation
 
-The Stage 1 menu was compiled with GCC 16.2.0 using C++11, `-Wall`, and
-`-Wextra`, and successfully run on Windows. It displayed all four menu
-options and exited normally.
+The integrated program was compiled with GCC 16.2.0 using C++11, `-Wall`,
+`-Wextra`, and debug symbols. All 16 integration cases passed on
+28 September 2026. See TEST_RESULTS.md for the recorded checks.
+
+For a quick demonstration, enter 1, abc, 2, 3, then 4. Expect one
+validation error, all three genre recommendations, and a final count of 3.
