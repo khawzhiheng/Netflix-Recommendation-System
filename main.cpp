@@ -4,27 +4,18 @@
 
 void runProgram();
 
-void displayMenu()
-{
-    std::cout << "\n========== Movie Menu ==========\n";
-    std::cout << "1. Action\n";
-    std::cout << "2. Comedy\n";
-    std::cout << "3. Horror\n";
-    std::cout << "4. Exit\n";
-}
-
-int readGenre()
+int readChoice(int minimum, int maximum)
 {
     std::string input;
 
     while (true)
     {
-        displayMenu();
-        std::cout << "Enter your choice (1-4): ";
+        std::cout << "Enter your choice: ";
 
         if (!std::getline(std::cin, input))
         {
-            return 4;
+            std::cout << '\n';
+            return maximum;
         }
 
         std::istringstream inputStream(input);
@@ -33,14 +24,36 @@ int readGenre()
 
         if ((inputStream >> choice) &&
             !(inputStream >> extraCharacter) &&
-            choice >= 1 && choice <= 4)
+            choice >= minimum &&
+            choice <= maximum)
         {
             return choice;
         }
 
-        std::cout << "Invalid input. Please enter a whole number "
-                     "from 1 to 4.\n";
+        std::cout << "Invalid input. Please enter a whole number from "
+                  << minimum << " to " << maximum << ".\n";
     }
+}
+
+int readMainMenu()
+{
+    std::cout << "\n============== Main Menu ==============\n";
+    std::cout << "1. Find a movie\n";
+    std::cout << "2. View my history\n";
+    std::cout << "3. Exit\n";
+
+    return readChoice(1, 3);
+}
+
+int readGenre()
+{
+    std::cout << "\n============ Choose a Genre ===========\n";
+    std::cout << "1. Action\n";
+    std::cout << "2. Comedy\n";
+    std::cout << "3. Horror\n";
+    std::cout << "4. Back to main menu\n";
+
+    return readChoice(1, 4);
 }
 
 int main()
